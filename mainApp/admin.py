@@ -20,4 +20,3 @@ class ClientAdmin(admin.ModelAdmin):
 class WorkAdmin(admin.ModelAdmin):
     list_display = ('date_time', 'haircut', 'client', 'master', 'final_cost')
     search_fields = ('date_time', 'haircut', 'client', 'master', 'final_cost')
-
