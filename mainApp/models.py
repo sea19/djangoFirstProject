@@ -54,7 +54,7 @@ class WorkModel(models.Model):
             self.client.status = True
             self.client.save(update_fields=['status'])
         if self.client.status:
-            self.final_cost = self.haircut.price-self.haircut.price*5/100
+            self.final_cost = self.haircut.price-self.haircut.price*3/100
         else:
             self.final_cost = self.haircut.price
         super().save(*args, **kwargs)
