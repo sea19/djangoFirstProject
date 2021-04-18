@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser, Group
 
 class CustomUser(AbstractUser):
     patronymic = models.CharField(_('Отчество'), null=True, max_length=150, blank=True)
-    phone = PhoneNumberField(_('Телефон'), null=True, blank=True)
+    phone = PhoneNumberField(_('Телефон'), null=True, blank=True, unique=True)
 
     def __str__(self):
         return '{} {} {}'.format(self.last_name or '', self.first_name or '',

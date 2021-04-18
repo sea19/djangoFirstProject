@@ -9,7 +9,7 @@ class HaircutModel(models.Model):
         ('m', 'мужская'),
     )
 
-    name = models.CharField(max_length=256, verbose_name='Название стрижки')
+    name = models.CharField(max_length=256, verbose_name='Название стрижки', unique=True)
     gender = models.CharField(max_length=1, choices=CHECKLIST_OPTIONS, verbose_name='Пол')
     price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name='Цена')
 
@@ -25,8 +25,8 @@ class ClientModel(models.Model):
     last_name = models.CharField(max_length=150, verbose_name='Фамилия')
     first_name = models.CharField(max_length=150, verbose_name='Имя')
     patronymic = models.CharField(null=True, blank=True, max_length=150, verbose_name='Отчество')
-    phone = PhoneNumberField(verbose_name='Номер телефона')
-    email = models.EmailField(null=True, blank=True)
+    phone = PhoneNumberField(verbose_name='Номер телефона', unique=True)
+    email = models.EmailField(null=True, blank=True, unique=True)
     status = models.BooleanField(verbose_name='Постоянный клиент')
 
     def __str__(self):
